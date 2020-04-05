@@ -1,0 +1,90 @@
+%top__page
+  %header 稟議・決済ページ
+  .top__page--name
+    決済申請ページ
+.decision__indexpage
+  .decision__indexpage--main
+    .decision__indexpage--estimate-booking
+      
+    %button.decision__indexpage--button
+      =link_to decisions_path ,class:"decision__indexpage--buttonfont",data: {"turbolinks"=>false} do
+        決済一覧に戻る
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+    .decision__new
+    -if @decision.booking_id
+      %table.p-top__introduce{:border => "1"}
+        %tr
+          %th 決済ID
+          %th 件名
+          %th 決済の状態
+          %th 予約ID
+          %th 見積ID
+          %th 出張費用 
+          %th 決済申請日
+          %th 出張理由
+          %th 決済者名
+          %th 決済完了日
+
+        %tr
+          %td= link_to @decision.id
+          %td= @decision.title
+          -if @decision.approval
+            %td= link_to "承認済み"
+          - else
+            %td= "申請中"
+          -if @decision.booking_id
+            %td= link_to @decision.booking_id
+          - else
+            %td= "----"
+          -if @decision.estimate_id
+            %td= link_to @decision.estimate_id
+          - else
+            %td= "----"
+          %td= @decision.rate
+          %td= @decision.application_date
+          %td= @decision.purpose
+          %td= @decision.authorizer
+          %td= @decision.completed
+      -if @decision.booking.issue == "発券"
+        発券依頼済
+      -elsif @decision.approval && @decision.booking_id
+        =link_to "発券依頼をする" ,booking_path(@decision.booking_id)
+      -elsif @decision.approval && @decision.booking_id
+        =link_to "予約依頼をする" ,estimate_path(@decision.estimate_id)
+
+    -elsif @decision.estimate
+      %table.p-top__introduce{:border => "1"}
+        %tr
+          %th 決済ID
+          %th 件名
+          %th 決済の状態
+          %th 予約ID
+          %th 見積ID
+          %th 出張費用 
+          %th 決済申請日
+          %th 出張理由
+          %th 決済者名
+          %th 決済完了日
+
+        %tr
+          %td= link_to @decision.id
+          %td= @decision.title
+          -if @decision.approval
+            %td= link_to "承認済み"
+          - else
+            %td= "申請中"
+          -if @decision.booking_id
+            %td= link_to @decision.booking_id
+          - else
+            %td= "----"
+          -if @decision.estimate_id
+            %td= link_to @decision.estimate_id
+          - else
+            %td= "----"
+          %td= @decision.rate
+          %td= @decision.application_date
+          %td= @decision.purpose
+          %td= @decision.authorizer
+          %td= @decision.completed

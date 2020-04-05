@@ -1,0 +1,74 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em> 6文字以上で英数字を入れてください</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :お名前（性） %><br />
+    <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :お名前（名） %><br />
+    <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname" %>
+  </div>
+
+  <div class="firstname_kana">
+    <%= f.label :お名前（カナ） %><br />
+    <%= f.text_field :firstname_kana, autofocus: true, autocomplete: "firstname_kana" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :お名前（カナ） %><br />
+    <%= f.text_field :lastname_kana, autofocus: true, autocomplete: "lastname_kana" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :誕生日 %><br />
+    <%= f.text_field :birthday, autofocus: true, autocomplete: "birthday" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :マイレージ番号 %><br />
+    <%= f.text_field :mileage, autofocus: true, autocomplete: "mileage" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :シートリクエスト%><br />
+    <%= f.text_field :seat_request, autofocus: true, autocomplete: "seat_request" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :パスポートナンバー%><br />
+    <%= f.text_field :passport_number, autofocus: true, autocomplete: "passport_number" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :パスポート有効期間（失効日）%><br />
+    <%= f.text_field :passport_valid, autofocus: true, autocomplete: "passport_valid" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>

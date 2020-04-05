@@ -1,0 +1,116 @@
+%top__page
+  %header 稟議・決裁ページ
+  .top__page--name
+    TOP PAGE
+.decision__indexpage
+  .decision__indexpage--main
+    .decision__indexpage--estimate-booking
+      決裁申請には見積もり・もしくは予約が必要です。
+    %button.decision__indexpage--button
+      =link_to new_estimate_path ,class:"decision__indexpage--buttonfont",data: {"turbolinks"=>false} do
+        見積依頼
+    %button.decision__indexpage--button
+      =link_to new_booking_path ,class:"decision__indexpage--buttonfont",data: {"turbolinks"=>false} do
+        予約依頼
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+    .decision-applications 決済中案済・申請中
+    .teams-contents-index
+      %table.p-top__introduce{:border => "2"}
+        %thead
+          %tr
+            %th.decision-first 決裁ID 
+            %th.decision-second 件名
+            %th.decision-thard 決裁の状態
+            %th.decision-force 予約ID
+            %th.decision-five 見積ID
+            %th.decision-five 発券期限
+        -if @decisions.present? 
+          - @decisions.zip(@bookings,@estimates) do |decision,booking,estimate|
+            %tr
+              %td= link_to decision.id, decision_path(decision.id)
+              %td= decision.title
+              -if decision.approval
+                %td= link_to "承認済" ,decision_path(decision.id)
+              - elsif decision.booking_id
+                %td= link_to "申請中", decision_path(decision.id) 
+              - elsif decision.estimate_id 
+                %td= link_to "申請中", decision_path(decision.id)
+              - elsif booking
+                %td= link_to "決裁・稟議を申請する", decision_path(decision.id)
+              - else
+                %td= "----"
+              -if decision.booking_id
+                %td= link_to decision.booking_id, booking_path(decision.booking_id)
+              - else
+                %td= "----"
+              -if decision.estimate_id
+                %td= link_to decision.estimate_id, estimate_path(decision.estimate_id)
+              - else 
+                %td= "---"
+              -if decision.booking_id
+                %td= booking.policy
+              - else
+                %td= "---" 
+                
+              
+
+            
+    .decision-applications 決済・稟議未申請案件（予約済）
+    .teams-contents-index
+      %table.p-top__introduce{:border => "2"}
+        %thead
+          %tr
+            %th.decision-first 予約ID 
+            %th.decision-second 方面
+            %th.decision-thard 決裁の状態
+            %th.decision-force 出発日
+            %th.decision-five 発券期限
+        
+        -if @no_decision.present? 
+          - @no_decision.zip(@no_decisions) do |booking,estimate|
+            %tr
+              -if booking.id
+                %td=link_to booking.id, booking_path(booking.id)
+              -elsif estimate.id
+                %td=link_to estimate.id, estimate_path(estimate.id)
+              -if booking.destination
+                %td=booking.destination
+              -elsif estimate.destination
+                %td=estimate.destination
+              %td=link_to "未申請" , new_booking_decision_path(booking.id)
+              -if booking.departure_day
+                %td=booking.departure_day
+              -elsif estimate.departure_day
+                %td=estimate.departure_day.strftime("%Y-%m-%d(%a)")
+              -if booking.policy
+                %td=booking.policy
+              -elsif estimate.policy
+                %td=estimate.policy
+
+    .decision-applications 決済・稟議未申請案件(未予約)
+    .teams-contents-index
+      %table.p-top__introduce{:border => "2"}
+        %thead
+          %tr
+            %th.decision-first 見積ID 
+            %th.decision-second 方面
+            %th.decision-thard 決裁の状態
+            %th.decision-force 出発日
+
+        
+        -if @no_decisions.present? 
+          - @no_decisions.each do |estimate|
+            %tr
+              -if estimate.id
+                %td=link_to estimate.id, estimate_path(estimate.id)
+              -if estimate.destination
+                %td=estimate.destination
+              %td=link_to "未申請" , new_estimate_decision_path(estimate.id)
+              -if estimate.departure_day
+                %td=estimate.departure_day.strftime("%Y-%m-%d(%a)")
+              -if estimate.policy
+                %td=estimate.policy
+
+

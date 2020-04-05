@@ -1,0 +1,58 @@
+%top__page
+  %header 稟議・決済ページ
+  .top__page--name
+    決済申請ページ
+.decision__indexpage
+  .decision__indexpage--main
+    .decision__indexpage--estimate-booking
+      
+    %button.decision__indexpage--button
+      =link_to decisions_path ,class:"decision__indexpage--buttonfont",data: {"turbolinks"=>false} do
+        決済一覧に戻る
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+    .decision__new
+    -if params[:estimate_id] 
+      = form_with(model: @estimate ,url: estimate_decisions_path, method: :post, local: true) do |f|  
+        .field__decision
+          = f.label :件名;
+          = f.text_field :title, autofocus: true, autocomplete: ""
+
+        .field__decision
+          = f.label :出張目的;
+          = f.text_field :purpose, autofocus: true, autocomplete: ""
+
+
+        .field__decision
+          = f.label :出張費（合計）;
+          = f.text_field :rate, autofocus: true, autocomplete: ""
+
+        .field__decision
+          = f.label :申請日;
+          =f.date_select(:application_date,start_year:Time.now.year,prompt:"--",use_month_numbers:true, start_year:Time.now.year)
+
+
+        = f.submit class:"estimate__button",value:"申請"
+    - else
+      = form_with(model: @booking ,url: booking_decisions_path, method: :post, local: true) do |f| 
+        .field__decision
+          = f.label :件名;
+          = f.text_field :title, autofocus: true, autocomplete: ""
+
+        .field__decision
+          = f.label :出張目的;
+          = f.text_field :purpose, autofocus: true, autocomplete: ""
+
+
+        .field__decision
+          = f.label :出張費（合計）;
+          = f.text_field :rate, autofocus: true, autocomplete: ""
+
+        .field__decision
+          = f.label :申請日;
+          =f.date_select(:application_date,start_year:Time.now.year,prompt:"--",use_month_numbers:true, start_year:Time.now.year)
+
+
+        = f.submit class:"estimate__button",value:"申請"
+

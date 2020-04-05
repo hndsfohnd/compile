@@ -1,0 +1,60 @@
+%top__page
+  %header 見積もりページ
+  .top__page--name
+    TOP PAGE
+.estimate__indexpage
+  .estimate__indexpage--main
+    .decision__indexpage--estimate-booking
+      こちらは全て未予約です
+    %button.decision__indexpage--button
+      =link_to new_estimate_path ,class:"decision__indexpage--buttonfont" ,data: {"turbolinks"=>false} do
+        見積依頼
+    %button.decision__indexpage--button
+      =link_to new_booking_path ,class:"decision__indexpage--buttonfont", data: {"turbolinks"=>false} do
+        予約依頼
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+    .decision-applications 稟議・決済中案件
+    .teams-contents-index
+      %table.p-top__introduce{:border => "2"}
+        %thead
+          %tr
+            %th.estimate-one 見積ID
+            %th.estimate-two 出発日 
+            %th.estimate-three 出発地
+            %th.estimate-four 帰国日
+            %th.estimate-five 目的地
+            %th.estimate-six 航空会社
+            %th.estimate-seven 利用クラス
+            %th.estimate-eight ホテル
+            %th.estimate-nine フライト料金
+            %th.estimate-ten ホテル料金
+            %th.estimate-ten 決済可否
+        -if @estimates.present?
+          - @estimates .each do |est|
+            %tr
+              %td= link_to est.id,estimate_path(est.id)
+              %td= est.departure_day.strftime("%Y年%m月%d日")
+              %td= est.departure
+              %td= est.return_day.strftime("%Y年%m月%d日")
+              %td= est.destination
+              %td= est.airline
+              %td= est.flight_class
+              %td= est.hotel
+              -if est.flight_rate
+                %td= est.flight_rate
+              - else
+                %td= "----"
+              -if est.hotel_rate
+                %td= est.hotel_rate
+              - else
+                %td= "----"
+              -if est.decision
+                %td= "承認済み"
+              - elsif est.flight_rate || est.hotel_rate
+                %td= link_to "申請する", new_estimate_decision_path(est.id)
+              -else 
+                %td= "----"            
+              
+              

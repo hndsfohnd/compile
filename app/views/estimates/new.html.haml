@@ -1,0 +1,59 @@
+%top__page
+  %header 見積もり依頼ページ
+  .top__page--name
+    見積もり
+.estimate__indexpage
+  .decision__indexpage--main
+    .decision__indexpage--estimate-booking
+      
+    %button.decision__indexpage--button
+      =link_to new_booking_path ,class:"decision__indexpage--buttonfont",data: {"turbolinks"=>false} do
+        予約依頼
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+    .decision-applications 稟議・決済中案件
+    .teams-contents-index 新規見積依頼
+    = form_with(model: @estimate ,url: estimates_path, method: :post, local: true) do |f| 
+      = render 'layouts/error_messages', booking: f.object
+      .estimate__country
+        = f.label :渡航国　：
+        = f.country_select :country,priority_countries_divider: "----------",priority_countries: ["US","CA","DE","FR","DE","ES","CH","NL","PT","SE","FI","IT","CN","HK","KR","MM","TH","TW","VN","IN","AU"], priority_countries_divider: "----------",class: "estimate_country",include_blank: '国の選択'
+        #visa__info
+      .estimate__destination
+        = f.label :渡航先　：
+        = f.text_field :destination, autofocus: true, autocomplete: "",class: ".estimate__destination--form",placeholder:"例：サンフランシスコ"
+  
+
+      .estimate__departureday
+        = f.label :出発日　：
+        = f.date_select(:departure_day,start_year:Time.now.year,prompt:"--",use_month_numbers:true, start_year:Time.now.year)
+  
+      .estimate__departure
+        = f.label :出発地　：
+        = f.text_field :departure, autofocus: true, autocomplete: "",placeholder:"例：東京羽田"
+
+      .estimate__returnday
+        = f.label :現地出発日　：
+        = f.date_select(:return_day,start_year:Time.now.year,prompt:"--",use_month_numbers:true, start_year:Time.now.year)
+
+      .estimate__class
+        = f.label :利用クラス　：
+        = f.select :flight_class, [["エコノミークラス", "エコノミー"], ["プレミアムエコノミークラス", "プレエコ"],["ビジネスクラス", "ビジネス"],["ファーストクラス", "ファースト"]]
+
+      .estimate__airline
+        = f.label :希望航空会社　：
+        = f.text_field :airline, autofocus: true, autocomplete: "",placeholder:"例：JAL日本航空"
+  
+
+      .estimate__hotel
+        = f.label :希望ホテル　：
+        = f.text_field :hotel, autofocus: true, autocomplete: ""
+  
+      .estimate__rimarks
+        = f.label :備考欄　：
+        = f.text_field :remarks, autofocus: true, autocomplete: "",class: "estimate__remarks"
+
+
+      = f.submit class:"estimate__button",value:"見積もり依頼"
+

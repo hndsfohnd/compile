@@ -1,0 +1,6 @@
+- if booking.errors.any?
+  .alert.alert-warning 
+    エラー内容
+    %ul 
+      - booking.errors.full_messages.each do |message|
+        %li= message

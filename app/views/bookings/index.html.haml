@@ -1,0 +1,108 @@
+%top__page
+  %header 予約ページ
+  .top__page--name
+    TOP PAGE
+.booking__indexpage
+  .booking__indexpage--main
+    .decision__indexpage--estimate-booking
+      
+    %button.decision__indexpage--button
+      =link_to new_estimate_path ,class:"decision__indexpage--buttonfont",data: {"turbolinks"=>false} do
+        見積依頼
+    %button.decision__indexpage--button
+      =link_to new_booking_path ,class:"decision__indexpage--buttonfont",data: {"turbolinks"=>false}  do
+        予約依頼
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+    .booking__index 予約依頼・予約済一覧
+    .booking__index--top
+      %table.p-top__introduce{:border => "2"}
+        %thead
+          %tr
+            %th.booking-first 予約ID
+            %th.booking-second 出発日 
+            %th.booking-five 出発地
+            %th.booking-second 帰国日
+            %th.booking-force 目的地
+            %th.booking-five 航空会社
+            %th.booking-five 利用クラス
+            %th.booking-five ホテル
+            %th.booking-five フライト料金
+            %th.booking-five ホテル料金
+            %th.booking-six 予約状況
+            %th.booking-five 発券期限
+            %th.booking-five 決済可否
+        -if @bookings.present?
+          - @booking .each do |booking|
+            %tr
+              %td.booking__first= link_to booking.id,booking_path(booking.id)
+              %td= booking.departure_day.strftime("%Y年%m月%d日")
+              %td= booking.departure
+              %td= booking.return_day.strftime("%Y年%m月%d日")
+              %td= booking.destination
+              %td= booking.airline
+              %td= booking.flight_class
+              %td= booking.hotel
+              -if booking.flight_rate
+                %td= booking.flight_rate
+              - else
+                %td= "----"
+              -if booking.hotel_rate
+                %td= booking.hotel_rate
+              - else
+                %td= "----"
+              -if booking.issue=="発券"
+                %td="発券済"
+              -elsif booking.issue == "キャンセル"
+                %td="取消済"
+              -elsif booking.flight_rate || booking.hotel_rate
+                %td="予約済"
+              -else 
+                %td="回答待"
+
+              -if booking.policy
+                %td= booking.policy
+              -else
+                %td= "---"
+              -if booking.decision
+                %td= "承認済み"
+              - elsif booking.flight_rate || booking.hotel_rate
+                %td= link_to "決済申請",new_booking_decision_path(booking.id)
+              -else
+                %td= "---"
+    .booking__index--finish 出発済利用履歴
+    .booking__index--top 
+      %table.p-top__introduce{:border => "2"}
+        %thead
+          %tr
+            %th.booking-first 予約ID
+            %th.booking-second 出発日 
+            %th.booking-five 出発地
+            %th.booking-second 帰国日
+            %th.booking-force 目的地
+            %th.booking-five 航空会社
+            %th.booking-five 利用クラス
+            %th.booking-five ホテル
+            %th.booking-five フライト料金
+            %th.booking-five ホテル料金
+
+        -if @finished
+          - @finished .each do |booking|
+            %tr
+              %td.booking__first= link_to booking.id,booking_path(booking.id)
+              %td= booking.departure_day.strftime("%Y年%m月%d日")
+              %td= booking.departure
+              %td= booking.return_day.strftime("%Y年%m月%d日")
+              %td= booking.destination
+              %td= booking.airline
+              %td= booking.flight_class
+              %td= booking.hotel
+              -if booking.flight_rate
+                %td= booking.flight_rate
+              - else
+                %td= "----"
+              -if booking.hotel_rate
+                %td= booking.hotel_rate
+              - else
+                %td= "----"

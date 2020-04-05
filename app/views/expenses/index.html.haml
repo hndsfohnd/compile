@@ -1,0 +1,52 @@
+%top__page
+  %header 出張精算
+  .top__page--name
+    TOP PAGE
+.decision__indexpage
+  .decision__indexpage--main
+    .decision__indexpage--estimate-booking
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+  .expense__index
+  .expense__indexpage
+    .expense-applications 帰国済精算申請済
+    .teams-contents-index
+      %table.p-top__introduce{:border => "2"}
+        %thead
+          %tr
+            %th 予約ID
+            %th 出発日
+            %th 件名
+            %th 目的地
+            %th 帰国日
+        -if @expense.present?
+          - @expense.each do |expense|
+            %tr
+              %td= link_to expense.id
+              %td= expense.booking.departure_day
+              %td= expense.booking.decision.title
+              %td= expense.booking.destination
+              %td= expense.booking.return_day
+    .expense-applications 未精算
+    .teams-contents-index
+      %table.p-top__introduce{:border => "2"}
+        %thead
+          %tr
+            %th 予約ID
+            %th 出発日
+            %th 件名
+            %th 目的地
+            %th 帰国日
+            %th 申請
+
+        -if @return_home
+          - @return_home.each do |expense|
+            %tr
+              %td= link_to expense.id
+              %td= expense.departure_day
+              %td= expense.decision.title
+              %td= expense.destination
+              %td= expense.return_day
+              %td= link_to "申請する", new_booking_expense_path(expense.id)
+

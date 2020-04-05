@@ -1,0 +1,40 @@
+%top__page
+  %header 出張精算
+  .top__page--name
+    TOP PAGE
+.decision__indexpage
+  .decision__indexpage--main
+    .decision__indexpage--estimate-booking
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+    %button.decision__indexpage--button
+      =link_to expenses_path ,class:"decision__indexpage--buttonfont" do
+        精算ページ一覧へ戻る
+
+
+    .expense__newpage 
+      = form_with(model: @expense ,url: booking_expenses_path, method: :post, local: true) do |f| 
+        .field
+          = f.label :申請日
+          =f.date_select(:application_date,start_year:Time.now.year,prompt:"--",use_month_numbers:true)
+          
+        .field__second
+          = f.label :出張費（トータル）
+          = f.text_field :travel_cost, autofocus: true, autocomplete: ""
+        .post__drop__box__container
+          .prev-content
+          .label-content
+            %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"} 
+              %pre.label-box__text-visible 領収書添付
+          .hidden-content
+            = f.file_field :receipts, multiple: true, name: 'receipts[image][]', id: "item_images_attributes_[1]_image", class: "hidden-field", 'data-image': 0, type: "file"
+            = f.file_field :receipts, multiple: true, name: 'receipts[image][]', id: "item_images_attributes_[2]_image", class: "hidden-field", 'data-image': 0, type: "file"
+            = f.file_field :receipts, multiple: true, name: 'receipts[image][]', id: "item_images_attributes_[3]_image", class: "hidden-field", 'data-image': 0, type: "file"
+            = f.file_field :receipts, multiple: true, name: 'receipts[image][]', id: "item_images_attributes_[4]_image", class: "hidden-field", 'data-image': 0, type: "file"
+            = f.file_field :receipts, multiple: true, name: 'receipts[image][]', id: "item_images_attributes_[5]_image", class: "hidden-field", 'data-image': 0, type: "file"
+
+          = f.submit class:"estimate__button",value:"申請する"
+
+
+

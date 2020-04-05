@@ -1,0 +1,27 @@
+%top__page
+  %header 情報の管理・更新
+  .top__page--name
+    #{current_user.lastname}#{current_user.firstname} さん専用ページ
+  .user__infotop 
+    .user__info 
+      .user__info--passport
+        パスポートナンバー:     #{current_user.passport_number}
+      .user__info--passportvalid
+        パスポート有効期間:      #{@passport_valid}
+      .user__info--passportlimit
+        パスポート残存日数:
+        ="#{@zan}日"
+        .user__info--passportlimitedi
+        -if @zan < 0
+          パスポートの有効期間が失効しています。現状のパスポートでは渡航できませんので、更新手続きをお願いいたします。（パスポートの更新手続きには１週間間前後かかります）
+        -elsif @zan < 185
+          パスポートの残存が半年をきっていますので、お早めの更新手続きをお勧め致します。<br>（一部の国では入国時に半年以上残存がなければ、入国できない国もございます）<br>#{link_to"パスポートの更新について" }    
+      .user__mileage
+        マイレージ番号；
+        =current_user.mileage
+      .user__infoupdate
+        %button.user__infoupdate--button 情報の更新はこちらから
+        =link_to "",class:"top__page-sidebar" 
+
+
+

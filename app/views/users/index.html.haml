@@ -1,0 +1,55 @@
+%top__page
+  %header 海外出張管理画面(TOP PAGE)
+  .top__page--name
+    #{current_user.lastname}#{current_user.firstname} さん専用ページ
+  .top__page--sidebar
+    .top__page--sidebar2
+      %button.top__page-sidebar
+        =link_to estimates_path ,class:"top__page-sidebar" do
+          見積依頼 (#{@estimate}件)  
+       
+      %button.top__page-sidebar
+        =link_to bookings_path ,class:"top__page-sidebar" do
+          予約依頼/発券依頼 (#{@booking}件) 
+      %button.top__page-sidebar
+        =link_to decisions_path ,class:"top__page-sidebar" do
+          決裁稟議/承認確認 (#{@decision}件) 
+          
+      %button.top__page-sidebar
+        =link_to  expenses_path ,class:"top__page-sidebar" do
+          出張精算 (#{@expenses}件) 
+      %button.top__page-sidebar
+        =link_to user_path(current_user) ,class:"top__page-sidebar" do
+          情報の管理・更新
+      %button.top__page-sidebar
+        =link_to destroy_user_session_path ,method: :delete,class:"top__page-sidebar" do
+          ログアウト
+
+      -if current_user.try(:admin_flg?)
+        %button.top__page-sidebar3
+          = link_to "/admin/estimate", class: "top__page-sidebar1" do
+            管理者ページ
+    .top__page--main   
+      .top__page--news
+      .top__page--newnews
+        渡航情報最新ニュース
+
+        .top__page--toko
+          =link_to "COVID-19の各国の入国制限処置及び入国・入域後の行動制限について"    
+        .top__page--toko
+          =link_to "COVID-19の影響による各航空会社の対応について"
+        .top__page--toko
+          =link_to "運休・遅延情報"         
+          
+        .top__page--toko
+          =link_to "今月の大使館の休館日について"
+        .top__page--toko
+          =link_to "ストライキ情報"
+        .top__page--toko
+          =link_to "外務省海外安全情報"        
+        .top__page--toko
+          =link_to "営業時間外の対応について"   
+        .top__page--toko
+          =link_to "よくある質問 Q & A"   
+
+

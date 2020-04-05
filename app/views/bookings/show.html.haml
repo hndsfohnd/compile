@@ -1,0 +1,72 @@
+%top__page
+  %header 予約ページ
+  .top__page--name
+    予約詳細
+.booking__indexpage
+  .estimate__indexpage--main
+    .decision__indexpage--estimate-booking
+    %button.decision__indexpage--button
+      =link_to bookings_path ,class:"decision__indexpage--buttonfont" do
+        予約一覧へ戻る
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+    .booking__show
+      %table.p-top__introduce{:border => "1"}
+        %tr
+          %th 航空会社
+          %th 出発日
+          %th 出発地
+          %th 目的地
+          %th 帰国日
+          %th ホテル名
+          %th フライトレート
+          %th ホテルレート
+
+        %tr
+          %td= @booking.airline
+          %td= @booking.departure_day
+          %td= @booking.departure
+          %td= @booking.destination
+          %td= @booking.return_day
+          %td= @booking.hotel
+          -if @booking.flight_rate 
+            %td= "#{@booking.flight_rate}円"
+          - else
+            %td= "---円"
+          -if @booking.hotel_rate 
+            %td= "#{@booking.hotel_rate}円"
+          - else
+            %td= "---円"
+        .booking__decision
+          -if @booking.issue == "発券"
+            発券依頼済
+          -elsif @booking.issue == "キャンセル"
+            キャンセル依頼済
+          -elsif @no_decisions.blank? && @booking.flight_rate || @booking.hotel_rate
+            =link_to new_booking_decision_path(@booking.id) , class:"decision__OK" do
+              下記内容で決済・稟議を申請する
+          -elsif @no_decisions.blank?
+            回答待
+          -elsif @booking.decision.approval
+            = form_with(model: @booking ,url: issue_booking_path, method: :post, local: true) do |f|
+              .field
+              = f.select :issue, [["発券する", "発券"], ["キャンセルする", "キャンセル"]]
+              = f.submit "発券依頼"
+          -elsif @decisions.present? 
+            決済申請中です。
+
+    .booking__schedule
+      フライトスケジュール
+      = simple_format(@booking.remarks)
+    .booking__type
+      チケットタイプ：変更不可<br>
+      発券期限     :#{@booking.policy}
+      
+    .booking__hotel
+      ホテル情報
+      =link_to ""
+
+
+
+

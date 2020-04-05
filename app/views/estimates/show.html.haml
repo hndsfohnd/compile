@@ -1,0 +1,45 @@
+%top__page
+  %header 見積もりページ
+  .top__page--name
+    見積詳細
+.estimate__indexpage
+  .estimate__indexpage--main
+    .decision__indexpage--estimate-booking
+      こちらは未予約です
+    %button.decision__indexpage--button
+      =link_to estimates_path ,class:"decision__indexpage--buttonfont" do
+        見積もり一覧へ戻る
+    %button.decision__indexpage--button
+      =link_to root_path ,class:"decision__indexpage--buttonfont" do
+        トップページへ戻る
+
+    .estimate__show
+      %table.p-top__introduce{:border => "1"}
+        %tr
+          %th 航空会社
+          %th 出発日
+          %th 出発地
+          %th 目的地
+          %th 帰国日
+          %th ホテル名
+          %th フライトレート
+          %th ホテルレート
+
+        %tr
+          %td= @estimate.airline
+          %td= @estimate.departure_day.strftime("%Y-%m-%d(%a)")
+          %td= @estimate.departure
+          %td= @estimate.destination
+          %td= @estimate.return_day.strftime("%Y-%m-%d(%a)")
+          %td= @estimate.hotel
+          -if @estimate.flight_rate 
+            %td= "#{@estimate.flight_rate}円"
+          - else
+            %td= "---円"
+          -if @estimate.hotel_rate 
+            %td= "#{@estimate.hotel_rate}円"
+          - else
+            %td= "---円"
+    .booking__schedule
+      フライトスケジュール
+      = simple_format(@estimate.remarks)
