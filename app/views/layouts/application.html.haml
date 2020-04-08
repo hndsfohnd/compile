@@ -5,8 +5,10 @@
     %title Compile
     = csrf_meta_tags
     = csp_meta_tag
-
-    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
-  
+    -#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    -#%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+    -#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   %body
     = yield
