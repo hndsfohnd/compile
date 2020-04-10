@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :estimates
   has_many :bookings
   has_one  :decision
-  belongs_to :expense
+  has_many :expenses
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
