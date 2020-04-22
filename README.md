@@ -87,8 +87,8 @@ receiptテーブル
 |expense_id|bigint|
 
 トップページイメージ画像
+![トップページイメージ画像](https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png)
 
-https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png
 
 ## 工夫したポイント
  - ユーザビリティーを考え、AJAXを取り入れた実装を行った。（非同期通信・インクリメンタルサーチ機能）
