@@ -1,5 +1,5 @@
 # README
-## 海外出張の管理アプリ
+## 海外出張一元化アプリ
 
 トップページイメージ画像
 ![トップページイメージ画像](https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png)
