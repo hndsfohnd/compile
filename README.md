@@ -68,7 +68,7 @@ decisionsテーブル
 |admin_flg|boolean|
 
 
-expensesテーブル
+expenseテーブル
 |Column|Type|Options|
 |------|----|-------|
 |application_date|date|null: false|
@@ -79,6 +79,12 @@ expensesテーブル
 |decision_id|string|
 |user_id|bigint |
 |booking_id|bigint|
+
+receiptテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|expense_id|bigint|
 
 
 ## 工夫したポイント
