@@ -61,11 +61,25 @@ decisionsテーブル
 |application_date|date|null: false|
 |approval|boolean|
 |authorizer|string|
-|user_id|bigint |
-|booking_id|bigint |
+|user_id|bigint|
+|booking_id|bigint|
 |mileage|string|
 |seat_request|string|
 |admin_flg|boolean|
+
+
+expensesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|application_date|date|null: false|
+|travel_cost|string|null: false|
+|approver|string|
+|completed|date|
+|approval|string|
+|decision_id|string|
+|user_id|bigint |
+|booking_id|bigint|
+
 
 ## 工夫したポイント
  - ユーザビリティーを考え、AJAXを取り入れた実装を行った。（非同期通信・インクリメンタルサーチ機能）
