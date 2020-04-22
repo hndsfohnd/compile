@@ -7,7 +7,7 @@
 - 出張手続きフローの一元化でuserにとって一つのシステムで全てが完結できるメリットがあり、かつ、管理者は出張者の管理や危機管理を行えるという点を目的としたアプリ。
 
 ## 本番環境
-  - AWSでデプロイ(http://54.64.229.114/)
+  - AWSでデプロイ　http://54.64.229.114/
 
 ## 制作背景
  - 現在社内で使用しているシステムにこういう機能があったらもっと効率化が勧められて、かつ、サービス向上に繋がるのではないかと考えた。
@@ -36,12 +36,20 @@ bookingテーブル
 |estimate_id|integer|
 
 
-bookテーブル
+Userテーブル
 |Column|Type|Options|
 |------|----|-------|
-|country|string|null: false|
-|answer|string|null: false|
-
+|email|string|null: false|
+|password|string|null: false|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|firstname_kana|string|null: false|
+|lastname_kana|string|null: false|
+|passport_number|string|null: false|
+|passport_valid|data|null: false|
+|mileage|string|
+|seat_request|string|
+|admin_flg|boolean|
 
 ## 工夫したポイント
  - ユーザビリティーを考え、AJAXを取り入れた実装を行った。（非同期通信・インクリメンタルサーチ機能）
