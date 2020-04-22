@@ -51,6 +51,22 @@ Userテーブル
 |seat_request|string|
 |admin_flg|boolean|
 
+
+decisionsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|purpose|string|null: false|
+|rate|string|null: false|
+|application_date|date|null: false|
+|approval|boolean|
+|authorizer|string|
+|user_id|bigint |
+|booking_id|bigint |
+|mileage|string|
+|seat_request|string|
+|admin_flg|boolean|
+
 ## 工夫したポイント
  - ユーザビリティーを考え、AJAXを取り入れた実装を行った。（非同期通信・インクリメンタルサーチ機能）
 
