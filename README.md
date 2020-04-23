@@ -42,7 +42,7 @@ Userテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false|
-|password|string|null: false|
+|password|string|null: false,unique: true|
 |firstname|string|null: false|
 |lastname|string|null: false|
 |firstname_kana|string|null: false|
