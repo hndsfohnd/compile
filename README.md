@@ -7,8 +7,7 @@
 - 出張手続きフローの一元化でuserにとって一つのシステムで全てが完結できるメリットがあり、かつ、管理者は出張者の危機管理等を行えるという点を目的としたアプリ。
 
 トップページイメージ画像
-![トップページイメージ画像](https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png= 250x250)
-
+<img src="https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png" width="80%">
 ## 本番環境
   - AWSでデプロイ　http://54.64.229.114/
 
