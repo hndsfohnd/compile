@@ -14,13 +14,19 @@
       %button.top__page-sidebar
         =link_to decisions_path ,class:"top__page-sidebar" do
           決裁稟議/承認確認 (#{@decision}件) 
+      = label :name, class: 'contents__input--label' do
+        %button.top__page-sidebar
+          =link_to  expenses_path ,class:"top__page-sidebar", name:"name" do
+            出張精算 (#{@expenses}件) 
+      
+
+      %button.top__page-sidebar 
+        %label:button 
+          =link_to user_path(current_user) ,class:"top__page-sidebar" ,name:"button" do
+            情報の管理・更新
           
-      %button.top__page-sidebar
-        =link_to  expenses_path ,class:"top__page-sidebar" do
-          出張精算 (#{@expenses}件) 
-      %button.top__page-sidebar
-        =link_to user_path(current_user) ,class:"top__page-sidebar" do
-          情報の管理・更新
+
+
       %button.top__page-sidebar
         =link_to destroy_user_session_path ,method: :delete,class:"top__page-sidebar" do
           ログアウト
@@ -42,7 +48,7 @@
           =link_to "運休・遅延情報"         
           
         .top__page--toko
-          =link_to "今月の大使館の休館日について"
+          =link_to "大使館の休館日について"
         .top__page--toko
           =link_to "ストライキ情報"
         .top__page--toko

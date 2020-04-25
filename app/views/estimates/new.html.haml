@@ -47,12 +47,12 @@
   
 
       .estimate__hotel
-        = f.label :希望ホテル　：
+        = f.label :hotel,"希望ホテル:"
         = f.text_field :hotel, autofocus: true, autocomplete: ""
   
       .estimate__rimarks
-        = f.label :備考欄　：
-        = f.text_field :remarks, autofocus: true, autocomplete: "",class: "estimate__remarks"
+        = f.label :remarks ,"備考欄:"
+        = f.text_area :remarks, autofocus: true, autocomplete: "",class: "estimate__remarks"
 
 
       = f.submit class:"estimate__button",value:"見積もり依頼"
