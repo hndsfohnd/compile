@@ -8,6 +8,8 @@
 
 トップページイメージ画像
 <img src="https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png" width="80%">
+
+予約画面イメージ画像
 ## 本番環境
   - AWSでデプロイ　http://54.64.229.114/
 
@@ -91,7 +93,8 @@ receiptテーブル
 
 ## ポイント
  - 管理者側のページはgem(admin-rails)を利用して実装
- - 
+ - gem（rails_admin、country_select）やバリデーションを含め、全て日本語で表記
+ - バリデーション（パスワード・日付）の実装
 
 ## 開発環境
 ruby2.5.1 
