@@ -7,7 +7,7 @@
 - 出張手続きフローの一元化でuserにとって一つのシステムで全てが完結できるメリットがあり、かつ、管理者は出張者の危機管理等を行えるという点を目的としたアプリ。
 
 トップページイメージ画像
-<img src="https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png" width="80%">
+<img src="https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png" width="%">
 
 予約依頼画面イメージ画像
 - ポイント　日付のバリテーション・渡航国を選択するとVISAの注意文が表示されるように実装した
