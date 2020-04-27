@@ -12,6 +12,10 @@
  
 ## 本番環境
   - AWSでデプロイ　http://54.64.229.114/
+
+  管理者用アカウント　email: test@test.co.jp    　 password: test123
+  一般アカウント　　　email: test1@test.co.jp　　　
+  <br>
 ## 実装ポイント
 
 トップページイメージ画像(管理者画面)
