@@ -68,7 +68,7 @@
             %th.decision-force 出発日
             %th.decision-five 発券期限
         
-        -elsif @no_decision.present? 
+        -if @no_decision.present? 
           - @no_decision.zip(@no_decisions) do |booking,estimate|
             %tr
               -if booking.id
@@ -101,7 +101,7 @@
             %th.decision-force 出発日
 
         
-        -elsif @no_decisions.present? 
+        -if @no_decisions.present? 
           - @no_decisions.each do |estimate|
             %tr
               -if estimate.id
