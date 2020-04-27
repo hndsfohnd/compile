@@ -68,7 +68,7 @@
             %th.decision-force 出発日
             %th.decision-five 発券期限
         
-        -if @no_decision.present? 
+        -elsif @no_decision.present? 
           - @no_decision.zip(@no_decisions) do |booking,estimate|
             %tr
               -if booking.id
@@ -89,6 +89,7 @@
               -elsif estimate.policy
                 %td=estimate.policy
 
+
     .decision-applications 決済・稟議未申請案件(未予約)
     .teams-contents-index
       %table.p-top__introduce{:border => "2"}
@@ -100,7 +101,7 @@
             %th.decision-force 出発日
 
         
-        -if @no_decisions.present? 
+        -elsif @no_decisions.present? 
           - @no_decisions.each do |estimate|
             %tr
               -if estimate.id

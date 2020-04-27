@@ -8,7 +8,7 @@
     %button.decision__indexpage--button
       =link_to root_path ,class:"decision__indexpage--buttonfont" do
         トップページへ戻る
-    .decision-applications 稟議・決済中案件
+    .decision-applications
     .teams-contents-index 新規予約依頼
     = form_with(model: @booking ,url: bookings_path, method: :post, local: true) do |f| 
       = render 'layouts/error_messages', booking: f.object

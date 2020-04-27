@@ -22,6 +22,7 @@ $(document).on('turbolinks:load', function(){
       var prevContent = $('.label-content').prev();
       labelWidth = (100 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
       $('.label-content').css('width', labelWidth);
+      console.log("aaa");
     }
 
     // プレビューの追加
@@ -34,7 +35,6 @@ $(document).on('turbolinks:load', function(){
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       //files[0]と配列の指定になっているのは、<input type=”file”>でmultiple=を設定すると複数ファイル選択が可能になるから。今回は選択できるファイルはひとつだけなので、files[0]を指定。
-      console.log(file)
       var reader = new FileReader();
       //readAsDataURLで指定したFileオブジェクトを読み込む
       console.log(reader)
@@ -119,3 +119,8 @@ $(document).on('turbolinks:load', function(){
   });
 });
 
+$(function(){
+  $('.field__second').on('click',function(){
+    $('label').css('color','red');
+  })
+})
