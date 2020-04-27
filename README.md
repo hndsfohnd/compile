@@ -16,10 +16,16 @@
 　- 社内システムを想定してシンプルな色使いと分かりやすさを意識したviewの実装
 
 <img src="https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png" width="65%" height="65%">
+<br>
+<br>
 
 予約依頼画面イメージ画像
 　- 日付のバリテーション・渡航国を選択するとパスポートの残存やVISAの注意文が表示されるように実装した
+<br>
+
 <img src="https://user-images.githubusercontent.com/54070603/80312272-4028c980-881f-11ea-8356-0b2f52389233.png" width="65%" height="65%">
+<br>
+<br>
 
 稟議トップページイメージ画像
 　- 申請済・未申請・申請中の詳細が確認できる
