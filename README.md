@@ -128,11 +128,6 @@ receiptテーブル
 |expense_id|bigint|
 
 
-## ポイント
- - 管理者側のページはgem(admin-rails)を利用して実装
- - gem（rails_admin、country_select）やバリデーションを含め、全て日本語で表記
- - バリデーション（パスワード・日付）の実装
-
 ## 開発環境
 ruby2.5.1 
 rails5.2.4
