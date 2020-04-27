@@ -46,6 +46,8 @@
 <img src="https://user-images.githubusercontent.com/54070603/80334967-d1cf2000-888d-11ea-8f09-4d0fec7196b7.png" width="65%" height="65%">
 <br>
 <br>
+<br>
+<br>
 管理画面イメージ画像
 - rails_admin(gem)を用いて実装
 - rails_adminも含めて全て日本語化にして実装
