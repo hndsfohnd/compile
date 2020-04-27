@@ -12,7 +12,7 @@
  
 ## 実装ポイント
 
-トップページイメージ画像
+トップページイメージ画像(管理者画面)
 　- 社内システムを想定してシンプルな色使いと分かりやすさを意識したviewの実装
 
 <img src="https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png" width="65%" height="65%">
