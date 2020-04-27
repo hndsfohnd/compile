@@ -30,6 +30,14 @@
 稟議トップページイメージ画像
 　- 申請済・未申請・申請中の詳細が確認できる
 <img src="https://user-images.githubusercontent.com/54070603/80323983-5196c380-8869-11ea-9b54-2b4df0d9ebad.png" width="65%" height="65%">
+<br>
+<br>
+
+精算トップページイメージ画像
+　- 帰国後の精算の申請状況が確認できる
+<img src="https://user-images.githubusercontent.com/54070603/80334729-07bfd480-888d-11ea-8e7a-ada9eb38ff98.png" width="65%" height="65%">
+<br>
+<br>
 
 ## 本番環境
   - AWSでデプロイ　http://54.64.229.114/
