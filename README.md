@@ -7,16 +7,18 @@
 - 出張手続きフローの一元化でuserにとって一つのシステムで全てが完結できるメリットがあり、かつ、管理者は出張者の危機管理等を行えるという点を目的としたアプリ。
 
 
-<p class="info">
 トップページイメージ画像
-</p>
-
+<div class="bg-blue-light mb-2">
+  .text-gray-dark on .bg-blue-light
+</div>
 <img src="https://user-images.githubusercontent.com/54070603/79982407-40ecf300-84e1-11ea-8296-fdae78b9114a.png" width="65%" height="65%">
 
 予約依頼画面イメージ画像
 - ポイント　日付のバリテーション・渡航国を選択するとパスポートの残存やVISAの注意文が表示されるように実装した
 <img src="https://user-images.githubusercontent.com/54070603/80312272-4028c980-881f-11ea-8356-0b2f52389233.png" width="65%" height="65%">
 
+稟議トップページイメージ画像
+- ポイント　申請済・未申請・申請中の詳細が確認できる
 <img src="https://user-images.githubusercontent.com/54070603/80323983-5196c380-8869-11ea-9b54-2b4df0d9ebad.png" width="65%" height="65%">
 
 ## 本番環境
